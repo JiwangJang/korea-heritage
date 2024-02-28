@@ -1,0 +1,297 @@
+@font-face {
+  font-family: pretendard;
+  src: url(./PRETENDARD-MEDIUM.OTF);
+  font-weight: 100;
+}
+@font-face {
+  font-family: pretendard;
+  src: url(./PRETENDARD-BOLD.OTF);
+  font-weight: 200;
+}
+@font-face {
+  font-family: pretendard;
+  src: url(./PRETENDARD-BLACK.OTF);
+  font-weight: 300;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.scroll-part {
+  border: 1px solid transparent;
+  /* border: 1px solid red; */
+}
+
+body {
+  background-color: #181818;
+  overflow-x: hidden;
+}
+
+body.noScroll {
+  overflow: hidden;
+}
+
+#image-display-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 26px 0;
+  height: 100vh;
+  transform-origin: center;
+}
+
+#title-comment {
+  font-family: pretendard;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10vw;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  height: 100%;
+  min-width: 25vw;
+  border-radius: 10px;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.image-row {
+  flex: 1;
+  display: flex;
+  gap: 16px;
+}
+
+#heritage-container {
+  display: flex;
+  position: relative;
+}
+
+#heritage-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  width: 50vw;
+}
+
+#heritage-images.fix {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#heritage-images img {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  width: 50%;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+#heritage-images img.active {
+  top: 50%;
+  opacity: 1;
+}
+
+#heritage-descs {
+  padding-left: 50vw;
+  color: white;
+}
+
+.desc-form {
+  width: 60%;
+}
+
+.description {
+  height: 100vh;
+  width: 45vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.desc-title {
+  font-family: pretendard;
+  font-weight: 300;
+  font-size: 4.5vw;
+  letter-spacing: -0.1vw;
+}
+
+.desc-desc {
+  font-family: pretendard;
+  font-weight: 100;
+  font-size: 2.5vw;
+  letter-spacing: -0.2vw;
+}
+
+#endingment {
+  display: none;
+  font-size: 4vw;
+  font-family: pretendard;
+  font-weight: 200;
+  letter-spacing: -0.2vw;
+  text-align: center;
+}
+
+.position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#show-2 #scroll-2 #endingment {
+  display: block;
+  color: white;
+}
+
+.ment {
+  opacity: 0;
+}
+
+a {
+  text-decoration: underline;
+  color: white;
+}
+
+footer {
+  color: white;
+  font-family: pretendard;
+  font-weight: 200;
+  font-size: 24px;
+  padding: 20px 0px;
+  text-align: center;
+}
+
+#maker {
+  color: white;
+  font-family: pretendard;
+  font-size: 64px;
+}
+
+#scroll-3 {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+#loading {
+  z-index: 100;
+  background-color: #111111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#loading > div {
+  animation: rotate infinite 3s ease-in-out;
+}
+
+#loading-circle {
+  stroke-dashoffset: 220;
+  stroke-dasharray: 220;
+  animation: loading 1s ease-in-out infinite;
+}
+
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  width: 0%;
+  height: 10px;
+  background-color: rgb(61, 200, 255);
+  z-index: 10;
+}
+
+@keyframes loading {
+  from {
+    stroke-dashoffset: 220;
+  }
+  to {
+    stroke-dashoffset: -220;
+  }
+}
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* 이미지 세팅 */
+.image-1 {
+  background-image: url(./images/1.JPG);
+}
+.image-2 {
+  background-image: url(./images/2.jpg);
+}
+.image-3 {
+  background-image: url(./images/3.webp);
+}
+.image-4 {
+  background-image: url(./images/4.png);
+}
+.image-5 {
+  background-image: url(./images/5.png);
+}
+.image-6 {
+  background-image: url(./images/6.JPG);
+}
+.image-7 {
+  background-image: url(./images/7.jpg);
+}
+.image-8 {
+  background-image: url(./images/8.webp);
+}
+.image-9 {
+  background-image: url(./images/9.png);
+}
+.image-10 {
+  background-image: url(./images/10.png);
+}
+.image-11 {
+  background-image: url(./images/11.jpg);
+}
+.image-12 {
+  background-image: url(./images/12.png);
+}
+.image-13 {
+  background-image: url(./images/13.jpg);
+}
+.image-14 {
+  background-image: url(./images/14.png);
+}
+.image-15 {
+  background-image: url(./images/15.png);
+}
+.image-16 {
+  background-image: url(./images/16.png);
+}
+.image-17 {
+  background-image: url(./images/17.jpg);
+}
+.image-18 {
+  background-image: url(./images/18.jpg);
+}
