@@ -40,7 +40,7 @@ body.noScroll {
   flex-direction: column;
   gap: 16px;
   padding: 26px 0;
-  height: 100vh;
+  height: 100lvh;
   transform-origin: center;
 }
 
@@ -107,6 +107,7 @@ body.noScroll {
   transform: translate(-50%, -50%);
   border-radius: 10px;
   width: 50%;
+  min-width: 350px;
   opacity: 0;
   transition: all 0.5s;
 }
@@ -133,6 +134,7 @@ body.noScroll {
   justify-content: center;
   align-items: center;
   gap: 4px;
+  transition: 0.3s ease-in-out;
 }
 
 .desc-title {
@@ -294,4 +296,31 @@ footer {
 }
 .image-18 {
   background-image: url(./images/18.jpg);
+}
+
+@media (max-width: 1200px) {
+  .desc-title {
+    font-size: 50px;
+    text-wrap: nowrap;
+  }
+  .desc-desc {
+    font-size: 30px;
+    text-wrap: nowrap;
+  }
+  .ment {
+    font-size: 50px;
+    text-wrap: nowrap;
+  }
+  #title-comment {
+    font-size: 120px;
+  }
+}
+
+@media (max-width: 850px) {
+  .description {
+    align-items: start;
+  }
+  #heritage-descs {
+    padding-left: 55vw;
+  }
 }

@@ -1,3 +1,4 @@
+let isMobile = false;
 let imageBoxWidth = document.querySelector(".image").offsetWidth;
 const scrollObjs = [
   {
@@ -141,6 +142,7 @@ function playAnimation() {
       }
 
       if (currentScrollY >= height - innerHeight) {
+        console.log(window.innerHeight);
         elems.container.style.marginTop = height - innerHeight + "px";
         elems.container.style.position = "relative";
         elems.titleComment.style.position = "relative";
@@ -153,6 +155,7 @@ function playAnimation() {
       break;
     case 1:
       isSlide = false;
+
       if (currentScrollY >= innerHeight * 2) {
         elems.heritageImageContainer.classList.remove("fix");
         elems.heritageImageContainer.style.top = innerHeight * 2 + "px";
@@ -161,6 +164,7 @@ function playAnimation() {
         elems.heritageImageContainer.style.top = 0;
       }
 
+      if (isMobile) break;
       if (currentScrollRatio <= 0.2) {
         elems.heritageImages[0].classList.add("active");
         elems.heritageImages[1].classList.remove("active");
@@ -309,10 +313,13 @@ function setting() {
   const { elems, slideInfo, animationInfo, height } = scrollObjs[0];
   const { container, imageRows } = elems;
   const scrollRatio = (scrollY - prevScroll) / height;
-  container.style.transform = `scale(${calc(
-    animationInfo.containerScale,
-    scrollRatio
-  )})`;
+  if (scrollY <= scrollObjs[1].container.offsetTop) {
+    container.style.transform = `scale(${calc(
+      animationInfo.containerScale,
+      scrollRatio
+    )})`;
+  }
+
   imageRows[0].style.transform = `translateX(${slideInfo[0]}px)`;
   imageRows[1].style.transform = `translateX(-${slideInfo[1]}px)`;
   imageRows[2].style.transform = `translateX(${slideInfo[2]}px)`;
@@ -330,6 +337,13 @@ window.addEventListener("scroll", () => {
 });
 
 window.addEventListener("load", () => {
+  isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
+  if (isMobile) {
+    document.querySelector("#heritage-container").style.display = "none";
+  }
   document.querySelector("#loading").style.display = "none";
   document.body.classList.remove("noScroll");
   setting();
